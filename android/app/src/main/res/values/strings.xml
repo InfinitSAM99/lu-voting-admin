@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">LU Voting Admin</string>
+    <string name="title_activity_main">LU Voting Admin</string>
+    <string name="package_name">com.luconnect.voting.admin</string>
+    <string name="custom_url_scheme">com.luconnect.voting.admin</string>
+</resources>
