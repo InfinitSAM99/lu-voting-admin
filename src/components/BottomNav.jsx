@@ -1,12 +1,12 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import { HomeIcon, VoteIcon, UsersIcon, ChartIcon, SettingsIcon } from './Icons'
+import { HomeIcon, VoteIcon, UsersIcon, AlertIcon, SettingsIcon } from './Icons'
 
 const TABS = [
   { key: 'dashboard', path: '/dashboard', label: 'Home', Icon: HomeIcon },
   { key: 'elections', path: '/elections', label: 'Elections', Icon: VoteIcon },
-  { key: 'applications', path: '/applications', label: 'Applicants', Icon: UsersIcon },
-  { key: 'results', path: '/results', label: 'Results', Icon: ChartIcon },
-  { key: 'settings', path: '/settings', label: 'Settings', Icon: SettingsIcon }
+  { key: 'applications', path: '/applications', label: 'Review', Icon: UsersIcon },
+  { key: 'appeals', path: '/appeals', label: 'Appeals', Icon: AlertIcon },
+  { key: 'settings', path: '/settings', label: 'More', Icon: SettingsIcon }
 ]
 
 export default function BottomNav() {

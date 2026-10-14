@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './AuthContext'
 import { useTheme } from '../hooks/useTheme'
+import Splash from '../components/Splash'
 import AdminLayout from '../layouts/AdminLayout'
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import Elections from '../pages/Elections'
 import Applications from '../pages/Applications'
+import Students from '../pages/Students'
+import Appeals from '../pages/Appeals'
 import Results from '../pages/Results'
 import Security from '../pages/Security'
 import Settings from '../pages/Settings'
@@ -26,9 +30,7 @@ function AdminRoute({ children }) {
     return (
       <div className="app-shell" style={{ alignItems: 'center', justifyContent: 'center', padding: 24, textAlign: 'center' }}>
         <div style={{ maxWidth: 400 }}>
-          <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 12 }}>
-            Access denied
-          </div>
+          <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 12 }}>Access denied</div>
           <div style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.6 }}>
             {error || 'This account does not have admin access.'}
           </div>
@@ -55,6 +57,8 @@ function Shell() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/elections" element={<Elections />} />
         <Route path="/applications" element={<Applications />} />
+        <Route path="/students" element={<Students />} />
+        <Route path="/appeals" element={<Appeals />} />
         <Route path="/results" element={<Results />} />
         <Route path="/security" element={<Security />} />
         <Route path="/settings" element={<Settings />} />
@@ -64,11 +68,17 @@ function Shell() {
   )
 }
 
+function Root() {
+  const [splashDone, setSplashDone] = useState(false)
+  if (!splashDone) return <Splash onDone={() => setSplashDone(true)} />
+  return <Shell />
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Shell />
+        <Root />
       </AuthProvider>
     </BrowserRouter>
   )

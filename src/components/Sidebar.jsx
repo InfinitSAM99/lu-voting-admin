@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom'
-import { HomeIcon, VoteIcon, UsersIcon, ChartIcon, AlertIcon, SettingsIcon } from './Icons'
+import { HomeIcon, VoteIcon, UsersIcon, ChartIcon, AlertIcon, SettingsIcon, ShieldIcon } from './Icons'
 
 const ITEMS = [
   { to: '/dashboard', label: 'Dashboard', Icon: HomeIcon },
   { to: '/elections', label: 'Elections', Icon: VoteIcon },
   { to: '/applications', label: 'Applications', Icon: UsersIcon },
+  { to: '/students', label: 'Students', Icon: ShieldIcon },
+  { to: '/appeals', label: 'Appeals', Icon: AlertIcon },
   { to: '/results', label: 'Results', Icon: ChartIcon },
   { to: '/security', label: 'Security', Icon: AlertIcon },
   { to: '/settings', label: 'Settings', Icon: SettingsIcon }
@@ -29,7 +31,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <nav style={{ padding: '8px 12px', flex: 1 }}>
+      <nav style={{ padding: '8px 12px', flex: 1, overflowY: 'auto' }}>
         {ITEMS.map(({ to, label, Icon }) => (
           <NavLink
             key={to}
